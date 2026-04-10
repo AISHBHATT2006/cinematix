@@ -1,0 +1,183 @@
+/* Hero */
+.hero {
+  position: relative;
+  padding: 10rem 2.5rem 4rem;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,200,64,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 50%, rgba(255,94,58,0.05) 0%, transparent 60%);
+}
+/* Subtle film grain */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.hero-content { position: relative; max-width: 600px; }
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 380px;
+}
+
+/* Controls */
+.controls-wrap {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.2rem 2.5rem;
+  position: sticky;
+  top: 60px;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+}
+.controls { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--muted);
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+.search-box input {
+  width: 100%;
+  padding: 0.65rem 2.4rem 0.65rem 2.6rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: border-color var(--transition);
+}
+.search-box input::placeholder { color: var(--muted); }
+.search-box input:focus { border-color: var(--accent); outline: none; }
+
+.clear-btn {
+  position: absolute;
+  right: 12px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  background: none;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+.clear-btn:hover { color: var(--text); }
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.genre-filters { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
+
+.genre-btn {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 13px;
+  border-radius: 20px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  transition: all var(--transition);
+  letter-spacing: 0.03em;
+}
+.genre-btn:hover { border-color: var(--accent); color: var(--text); }
+.genre-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 600; }
+
+.sort-select {
+  padding: 5px 12px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+/* Movies section */
+.movies-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 2.5rem 4rem;
+}
+
+.section-header { margin-bottom: 1.5rem; }
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.count {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--bg3);
+  color: var(--muted);
+  padding: 2px 9px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--muted);
+}
+.empty-icon { font-size: 3rem; margin-bottom: 1rem; }
+.clear-link {
+  background: none;
+  color: var(--accent);
+  font-size: 0.85rem;
+  margin-top: 0.8rem;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 8rem 1.5rem 3rem; }
+  .controls-wrap { padding: 1rem 1.5rem; }
+  .movies-section { padding: 2rem 1.5rem 3rem; }
+  .movies-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+}

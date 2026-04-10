@@ -1,0 +1,108 @@
+.movie-card {
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  border-color: rgba(232,200,64,0.25);
+}
+
+.movie-poster {
+  position: relative;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+}
+.movie-poster img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.movie-card:hover .movie-poster img { transform: scale(1.05); }
+
+.movie-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,15,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.movie-card:hover .movie-overlay { opacity: 1; }
+
+.book-now-btn {
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  padding: 0.6rem 1.8rem;
+  border-radius: 8px;
+  transition: transform 0.15s ease;
+}
+.book-now-btn:hover { transform: scale(1.05); }
+
+.movie-rating {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: rgba(10,10,15,0.85);
+  border: 1px solid var(--border);
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  backdrop-filter: blur(4px);
+}
+.star { color: var(--accent); }
+
+.movie-info { padding: 14px; }
+
+.movie-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.dot { opacity: 0.4; }
+
+.movie-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.genre-tag {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 2px 9px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--bg3);
+}
+
+.movie-price {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent2);
+}

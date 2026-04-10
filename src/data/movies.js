@@ -1,0 +1,101 @@
+export const MOVIES = [
+  {
+    id: 1,
+    title: "Dune: Part Two",
+    genre: ["Sci-Fi", "Adventure"],
+    rating: 8.6,
+    duration: "166 min",
+    language: "English",
+    poster: "/images/dune2.jpg",
+    backdrop: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=500&fit=crop",
+    description: "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
+    cast: ["Timothée Chalamet", "Zendaya", "Rebecca Ferguson"],
+    director: "Denis Villeneuve",
+    price: 280,
+  },
+  {
+    id: 2,
+    title: "Oppenheimer",
+    genre: ["Drama", "History"],
+    rating: 8.9,
+    duration: "180 min",
+    language: "English",
+    poster: "/images/oppenheimer.jpg",
+    backdrop: "https://images.unsplash.com/photo-1610296669228-602fa827fc1f?w=1200&h=500&fit=crop",
+    description: "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
+    cast: ["Cillian Murphy", "Emily Blunt", "Matt Damon"],
+    director: "Christopher Nolan",
+    price: 320,
+  },
+  {
+    id: 3,
+    title: "Avatar: The Way of Water",
+    genre: ["Action", "Sci-Fi"],
+    rating: 7.9,
+    duration: "192 min",
+    language: "English",
+    poster: "/images/avatar.jpg",
+    backdrop: "https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?w=1200&h=500&fit=crop",
+    description: "Jake Sully and Ney'tiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora.",
+    cast: ["Sam Worthington", "Zoe Saldaña", "Sigourney Weaver"],
+    director: "James Cameron",
+    price: 350,
+  },
+  {
+    id: 4,
+    title: "Spider-Man: Across the Spider-Verse",
+    genre: ["Animation", "Action"],
+    rating: 8.7,
+    duration: "140 min",
+    language: "English",
+    poster: "/images/spiderman.jpg",
+    backdrop: "https://images.unsplash.com/photo-1518791841217-8f162f1912da?w=1200&h=500&fit=crop",
+    description: "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence.",
+    cast: ["Shameik Moore", "Hailee Steinfeld", "Oscar Isaac"],
+    director: "Joaquim Dos Santos",
+    price: 260,
+  },
+  {
+    id: 5,
+    title: "Guardians of the Galaxy Vol. 3",
+    genre: ["Action", "Comedy"],
+    rating: 8.0,
+    duration: "150 min",
+    language: "English",
+    poster: "/images/GOTG.jpg",
+    backdrop: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&h=500&fit=crop",
+    description: "Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe and protect one of their own.",
+    cast: ["Chris Pratt", "Zoe Saldaña", "Bradley Cooper"],
+    director: "James Gunn",
+    price: 280,
+  },
+  {
+    id: 6,
+    title: "Killers of the Flower Moon",
+    genre: ["Crime", "Drama"],
+    rating: 7.8,
+    duration: "206 min",
+    language: "English",
+    poster: "/images/killers.jpg",
+    backdrop: "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=1200&h=500&fit=crop",
+    description: "When oil is discovered in 1920s Oklahoma under Osage Nation land, the Osage people are murdered one by one.",
+    cast: ["Leonardo DiCaprio", "Robert De Niro", "Lily Gladstone"],
+    director: "Martin Scorsese",
+    price: 300,
+  },
+];
+
+export const SHOWTIMES = ['10:00 AM', '1:00 PM', '4:00 PM', '7:00 PM', '10:00 PM'];
+
+export const SEATS = (() => {
+  const rows = ['A','B','C','D','E','F','G','H'];
+  const cols = 10;
+  return rows.flatMap(row =>
+    Array.from({ length: cols }, (_, i) => ({
+      id: `${row}${i + 1}`,
+      row,
+      col: i + 1,
+      type: row <= 'B' ? 'premium' : row <= 'E' ? 'standard' : 'economy',
+    }))
+  );
+})();
