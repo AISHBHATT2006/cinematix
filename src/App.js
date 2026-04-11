@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { BookingProvider } from './context/BookingContext';
 import Navbar       from './components/Navbar';
 import Footer       from './components/Footer';
@@ -12,7 +12,7 @@ import NotFound     from './pages/NotFound';
 
 export default function App() {
   return (
-    <BrowserRouter basename="/cinematix">
+    <HashRouter>
       <BookingProvider>
         <Navbar />
         <Routes>
@@ -25,6 +25,6 @@ export default function App() {
         </Routes>
         <Footer />
       </BookingProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
